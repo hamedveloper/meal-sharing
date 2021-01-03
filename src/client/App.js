@@ -27,7 +27,7 @@ function App() {
           <Reviews />
         </Route>
       </Switch>
-      <Route exact path="/meals/addmeal">
+      <Route exact path="/meals">
         <NavigateBar />
         <br />
         <AddMeal />

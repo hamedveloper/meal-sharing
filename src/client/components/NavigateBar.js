@@ -14,7 +14,7 @@ export function NavigateBar() {
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="./meals/addmeal">Add a Meal</a>
+          <a href="./meals">Add a Meal</a>
         </li>
         <li>
           <a href="./reservations">Reservations</a>
