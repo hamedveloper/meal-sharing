@@ -1,0 +1,183 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section.header {
+  color: black;
+}
+
+nav,
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+}
+
+.searchbar {
+  width: 30em;
+  height: 30px;
+}
+/* .NavbarItems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+} */
+nav ul {
+  width: 40%;
+}
+nav ul li {
+  margin: 0;
+}
+
+.meal-list {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  flex-wrap: wrap;
+  width: 100%;
+}
+.review-list,
+.meal-list ul {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 5px 5px 8px #288299;
+  margin-bottom: 5px;
+}
+.button-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.review-box {
+  width: 100%;
+  height: 150px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: 5px 5px 8px #288299;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  padding: 8px;
+  overflow: scroll;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  height: 40px;
+  background: #ccc;
+}
+
+.star {
+  cursor: pointer;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 10px 0 10px;
+  background-color: rgb(203, 211, 212);
+  -webkit-clip-path: polygon(
+    50% 0%,
+    63% 38%,
+    100% 38%,
+    69% 59%,
+    82% 100%,
+    50% 75%,
+    18% 100%,
+    31% 59%,
+    0% 38%,
+    37% 38%
+  );
+  clip-path: polygon(
+    50% 0%,
+    63% 38%,
+    100% 38%,
+    69% 59%,
+    82% 100%,
+    50% 75%,
+    18% 100%,
+    31% 59%,
+    0% 38%,
+    37% 38%
+  );
+}
+
+.star-mealslist {
+  width: 1.2em;
+  height: 1.2em;
+  background-color: rgb(203, 211, 212);
+  margin: 10px 0 10px 0;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    63% 38%,
+    100% 38%,
+    69% 59%,
+    82% 100%,
+    50% 75%,
+    18% 100%,
+    31% 59%,
+    0% 38%,
+    37% 38%
+  );
+  clip-path: polygon(
+    50% 0%,
+    63% 38%,
+    100% 38%,
+    69% 59%,
+    82% 100%,
+    50% 75%,
+    18% 100%,
+    31% 59%,
+    0% 38%,
+    37% 38%
+  );
+}
+.star-group {
+  border: 2px solid #288299;
+  justify-content: center;
+  border-radius: 30px;
+}
+
+.star:hover,
+.star.selected {
+  background-color: #288299;
+}
+.selected {
+  background-color: #288299;
+}
+.star-holder,
+.star-text-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 5px;
+  align-items: center;
+}
+.star-holder {
+  margin-left: 10px;
+}
+.star-text-holder {
+  width: 50%;
+  border-radius: 10px;
+  border: 2px solid white;
+  box-shadow: 5px 5px 8px #288299;
+}
