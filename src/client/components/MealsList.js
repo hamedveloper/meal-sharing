@@ -19,8 +19,8 @@ export function MealsList() {
   const stars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   if (search !== "") {
-    var fetchURL = `http://localhost:5000/api/meals?title=${search}`;
-  } else fetchURL = "http://localhost:5000/api/meals";
+    var fetchURL = `api/meals?title=${search}`;
+  } else fetchURL = "api/meals";
 
   const getData = () => fetch(`${fetchURL}`).then((res) => res.json());
 
@@ -29,7 +29,7 @@ export function MealsList() {
       data
         .map((x) => x.id)
         .map((x) =>
-          fetch(`http://localhost:5000/api/reviews/${parseInt(x)}`)
+          fetch(`api/reviews/${parseInt(x)}`)
             .then((res) => res.json())
             .then((data) => {
               const numberofSelected = data.map(
