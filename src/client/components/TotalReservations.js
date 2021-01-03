@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 export function TotalReservations() {
   const [reserve, setReserve] = useState([]);
 
-  const fetchURL = "http://localhost:5000/api/reservations";
+  const fetchURL = "/api/reservations";
 
   const getData = () => fetch(`${fetchURL}`).then((res) => res.json());
 

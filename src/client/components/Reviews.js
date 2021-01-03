@@ -7,7 +7,7 @@ export function Reviews() {
   const [data, setData] = useState(null);
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
-  const fetchURL = `http://localhost:5000/api/meals/${parseInt(id)}`;
+  const fetchURL = `/api/meals/${parseInt(id)}`;
 
   const getData = () => fetch(`${fetchURL}`).then((res) => res.json());
 
@@ -17,7 +17,7 @@ export function Reviews() {
 
   function submitReview() {
     async function myreviewfetch() {
-      await fetch("http://localhost:5000/api/reviews", {
+      await fetch("/api/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

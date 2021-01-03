@@ -5,7 +5,7 @@ export function SearchBarList({ search }) {
   // const search = useContext(SearchContext);
   const [data, setData] = useState(null);
 
-  const fetchURL = `http://localhost:5000/api/meals?title=${search}`;
+  const fetchURL = `/api/meals?title=${search}`;
 
   const getData = () => fetch(`${fetchURL}`).then((res) => res.json());
 

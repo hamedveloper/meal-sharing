@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 export function TotalReview() {
   const [totalReview, setTotalReview] = useState([]);
 
-  const fetchURL = "http://localhost:5000/api/reviews";
+  const fetchURL = "/api/reviews";
 
   const getData = () => fetch(`${fetchURL}`).then((res) => res.json());
 

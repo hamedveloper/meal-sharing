@@ -9,7 +9,7 @@ export function Reservations() {
   const [phoneNr, setPhoneNr] = useState("");
   const [email, setEmail] = useState("");
 
-  const fetchURL = `http://localhost:5000/api/meals/${parseInt(id)}`;
+  const fetchURL = `/api/meals/${parseInt(id)}`;
 
   const getData = () => fetch(`${fetchURL}`).then((res) => res.json());
 
@@ -31,7 +31,7 @@ export function Reservations() {
 
   function SubmitReservation() {
     async function myfetch() {
-      await fetch("http://localhost:5000/api/reservations", {
+      await fetch("/api/reservations", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,9 +51,7 @@ export function Reservations() {
 
     async function fetchUpdate() {
       await fetch(
-        `http://localhost:5000/api/meals/${parseInt(
-          id
-        )}?numberOfGuests=${availability()}`,
+        `/api/meals/${parseInt(id)}?numberOfGuests=${availability()}`,
         {
           method: "PUT",
           headers: {
@@ -80,7 +78,7 @@ export function Reservations() {
 
     if (availability() === 0) {
       async function newfetch() {
-        await fetch(`http://localhost:5000/api/meals/${parseInt(id)}`, {
+        await fetch(`/api/meals/${parseInt(id)}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
