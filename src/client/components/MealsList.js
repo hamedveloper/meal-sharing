@@ -38,7 +38,7 @@ export function MealsList() {
   }
 
   return (
-    <div className="meal-list">
+    <div className={search ? "meal-list-search" : "meal-list"}>
       {data?.map((item) => (
         <ul className="meal-list2" key={item.id}>
           <li>Title: {item.title}</li>
