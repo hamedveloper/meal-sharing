@@ -2,18 +2,6 @@ const express = require("express");
 const router = express.Router();
 const knex = require("../database");
 
-//////////////////////////Kamal
-
-// router.get("/", async (request, response) => {
-//   try {
-//     // knex syntax for selecting things. Look up the documentation for knex for further info
-//     const titles = await knex("meals").select("*");
-//     response.json(titles);
-//   } catch (error) {
-//     throw error;
-//   }
-// });
-
 //...........................................Returns all meals
 
 router.get("/", async (request, response) => {
@@ -75,7 +63,7 @@ router.post("/", async (request, response) => {
 ////////////////////Reset number of guests after booking based on the booking guest amount
 
 router.put("/:id", async (request, response) => {
-  const { numberOfGuests } = request.query;
+  const { numberOfGuests, averageRate } = request.query;
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
     if (Object.keys(request.query).length === 0) {
@@ -86,6 +74,12 @@ router.put("/:id", async (request, response) => {
         .select("*")
         .where({ id: request.params.id })
         .update({ number_of_guests: numberOfGuests });
+      response.json(resault);
+    } else if (averageRate) {
+      let resault = await knex("meals")
+        .select("*")
+        .where({ id: request.params.id })
+        .update({ averageRate: averageRate });
       response.json(resault);
     }
   } catch (error) {
@@ -108,22 +102,22 @@ router.get("/:id", async (request, response) => {
 
 //..........................................Updates the meal by id
 
-router.put("/:id", async (request, response) => {
-  try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
-    const titles = await knex("meals")
-      .select("*")
-      .where({
-        id: request.params.id,
-      })
-      .update({
-        number_of_guests: 500,
-      });
-    response.json(titles);
-  } catch (error) {
-    throw error;
-  }
-});
+// router.put("/:id", async (request, response) => {
+//   try {
+//     // knex syntax for selecting things. Look up the documentation for knex for further info
+//     const titles = await knex("meals")
+//       .select("*")
+//       .where({
+//         id: request.params.id,
+//       })
+//       .update({
+//         number_of_guests: 500,
+//       });
+//     response.json(titles);
+//   } catch (error) {
+//     throw error;
+//   }
+// });
 
 //............................................Deletes the meal by id
 

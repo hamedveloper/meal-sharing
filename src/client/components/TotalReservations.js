@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
 export function TotalReservations() {
   const [reserve, setReserve] = useState([]);
@@ -13,7 +13,7 @@ export function TotalReservations() {
   return (
     <div>
       {reserve.map((item) => (
-        <ul key={item.id} className="review-list">
+        <ul key={item.id} className="review-list meal-list2">
           <li>Name: {item.name}</li>
           <li>How much guests: {item.guestamount}</li>
           <li>Email: {item.email}</li>

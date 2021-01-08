@@ -1,14 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { SetSearchContext } from "./HomePage";
 import { SearchContext } from "./HomePage";
-
-// export const SearchContext = React.createContext();
 
 export function SearchBarFeature() {
   const search = useContext(SearchContext);
   const setSearch = useContext(SetSearchContext);
-
-  console.log(search);
 
   return (
     <input

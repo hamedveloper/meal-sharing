@@ -65,17 +65,6 @@ export function Reservations() {
     }
     fetchUpdate();
 
-    // function checkAvailability() {
-    // const selectedMeal = data?.map((item) => {
-    //   const myResult = {
-    //     number_of_guests: item.number_of_guests,
-    //   };
-    //   return myResult;
-    // });
-    // const checkAvailability = selectedMeal[0].number_of_guests;
-    // // return checkAvailability;
-    // console.log(checkAvailability);
-
     if (availability() === 0) {
       async function newfetch() {
         await fetch(`/api/meals/${parseInt(id)}`, {
@@ -90,17 +79,13 @@ export function Reservations() {
       }
       newfetch();
     }
-    // }
   }
-
-  //   let avail = 1000;
-  //   data ? (avail = checkAvailability()) : "";
 
   return (
     <section>
       <div className="meal-list">
         {data?.map((item) => (
-          <ul key={item.id}>
+          <ul key={item.id} className="meal-list2">
             <li>Title: {item.title}</li>
             <li>Description: {item.description}</li>
             <li>Created at: {item.createdAt}</li>
@@ -110,43 +95,40 @@ export function Reservations() {
           </ul>
         ))}
       </div>
-      {/* {avail <= 0 ? (
-        <div>Unfortunately there is no any places to reserve</div>
-      ) : (
-        <div> */}
-      <label>Name: </label>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      ></input>
-      <br />
-      <label>How many guest: </label>
-      <input
-        type="text"
-        value={guestNr}
-        onChange={(e) => setGuestNr(e.target.value)}
-      ></input>
-      <br />
-      <label>Phone Number: </label>
-      <input
-        type="text"
-        value={phoneNr}
-        onChange={(e) => setPhoneNr(e.target.value)}
-      ></input>
-      <br />
-      <label>E-mail: </label>
-      <input
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      ></input>
-      <br />
-      <button type="submit" onClick={SubmitReservation}>
-        Reserve
-      </button>
-      {/* </div> */}
-      {/* )} */}
+
+      <div className="add-meal" style={{ color: "#6b5835" }}>
+        <label>Name: </label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+        <br />
+        <label>How many guest: </label>
+        <input
+          type="text"
+          value={guestNr}
+          onChange={(e) => setGuestNr(e.target.value)}
+        ></input>
+        <br />
+        <label>Phone Number: </label>
+        <input
+          type="text"
+          value={phoneNr}
+          onChange={(e) => setPhoneNr(e.target.value)}
+        ></input>
+        <br />
+        <label>E-mail: </label>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        ></input>
+        <br />
+        <button type="submit" onClick={SubmitReservation}>
+          Reserve
+        </button>
+      </div>
     </section>
   );
 }

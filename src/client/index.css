@@ -6,7 +6,6 @@
 }
 
 html {
-  position: relative;
   min-height: 100%;
 }
 
@@ -23,7 +22,7 @@ body {
 }
 
 button {
-  background-color: #3e99c0;
+  background-color: #28993b;
   border-radius: 8px;
   border-width: 0px;
   font-weight: 295;
@@ -31,6 +30,9 @@ button {
   padding: 5px;
   margin: 10px;
   font-size: 17px;
+}
+button:hover {
+  cursor: pointer;
 }
 
 /* @media screen and (max-width: 1400px) {

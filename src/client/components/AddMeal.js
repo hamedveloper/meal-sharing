@@ -28,7 +28,7 @@ export function AddMeal() {
   }
 
   return (
-    <section className="test-component">
+    <section className="add-meal">
       <label>Title:</label>
       <input
         type="text"
@@ -37,11 +37,11 @@ export function AddMeal() {
       ></input>
       <br />
       <label>Description: </label>
-      <input
+      <textarea
         type="text"
         value={desc}
         onChange={(e) => setDesc(e.target.value)}
-      ></input>
+      ></textarea>
       <br />
       <label>Date: </label>
       <input
@@ -50,14 +50,14 @@ export function AddMeal() {
         onChange={(e) => setDate(e.target.value)}
       ></input>
       <br />
-      <label>Price: </label>
+      <label style={{ color: "#6b5835" }}>Price: </label>
       <input
         type="text"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       ></input>
       <br />
-      <label>Number of guests: </label>
+      <label style={{ color: "#6b5835" }}>Number of guests: </label>
       <input
         type="text"
         value={numberOfGuest}

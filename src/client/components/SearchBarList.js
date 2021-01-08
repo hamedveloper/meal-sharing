@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { SearchContext } from "./SearchBarFeature";
 
 export function SearchBarList({ search }) {
-  // const search = useContext(SearchContext);
   const [data, setData] = useState(null);
 
   const fetchURL = `/api/meals?title=${search}`;

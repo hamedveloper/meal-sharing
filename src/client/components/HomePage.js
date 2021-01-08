@@ -12,20 +12,21 @@ export function HomePage() {
   return (
     <SearchContext.Provider value={search}>
       <SetSearchContext.Provider value={setSearch}>
-        <section className="header">
-          <NavigateBar className="NavbarItems" />
-          <h1> Meal Sharing App </h1>
-          <p>
-            here is the amazing place to inform you about making briliant event
-            meal making. You can select what you want and invite your friends if
-            you found the event funny.
-          </p>
-          <MealsList />
-          <section style={{ marginTop: "20px" }}>
-            <footer>
-              <p>All rights reserved</p>
-            </footer>
-          </section>
+        <NavigateBar className="NavbarItems" />
+
+        <p className="mainPage">
+          Here is the amazing place to provide you an opportunity to share your
+          meals with the others. We have a very luxux and beautiful place in the
+          city center with every thing you need for making your meals and host
+          your customers. And also here is a place for you as a customer to
+          select what you want completely diffenet than the normal restaurants.
+          Enjoy...
+        </p>
+        <MealsList />
+        <section style={{ marginTop: "20px" }}>
+          <footer>
+            <p>All rights reserved</p>
+          </footer>
         </section>
       </SetSearchContext.Provider>
     </SearchContext.Provider>

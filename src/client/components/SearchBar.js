@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import { SearchBarFeature } from "./SearchBarFeature";
 import { SearchBarList } from "./SearchBarList";
 

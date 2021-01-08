@@ -1,18 +1,19 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HomePage } from "./components/HomePage";
 import { Reservations } from "./components/Reservations";
 import { AddMeal } from "./components/AddMeal";
 import { NavigateBar } from "./components/NavigateBar";
 import { Reviews } from "./components/Reviews";
-import { Star } from "./components/FiveStar";
 import { TotalReview } from "./components/TotalReviews";
-import { TotalReservations } from "./components/TotalReservations";
+import { ContactUs } from "./components/ContactUs";
+import { Menu } from "./components/Menu";
 
 function App() {
   return (
     <Router>
       <Route exact path="/">
+        <br />
         <HomePage />
       </Route>
       <Switch>
@@ -37,10 +38,15 @@ function App() {
         <br />
         <TotalReview />
       </Route>
-      <Route path="/reservations">
+      <Route path="/menu">
         <NavigateBar />
         <br />
-        <TotalReservations />
+        <Menu />
+      </Route>
+      <Route path="/contactus">
+        <NavigateBar />
+        <br />
+        <ContactUs />
       </Route>
     </Router>
   );

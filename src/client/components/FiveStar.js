@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 
 function Star({ rating, onClick, starId, onMouseEnter, onMouseLeave }) {
   return (
