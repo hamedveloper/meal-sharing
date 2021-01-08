@@ -38,7 +38,9 @@ export function MealsList() {
   }
 
   return (
-    <div className={search ? "meal-list-search" : "meal-list"}>
+    <div
+      className={data?.length <= 4 || search ? "meal-list-search" : "meal-list"}
+    >
       {data?.map((item) => (
         <ul className="meal-list2" key={item.id}>
           <li>Title: {item.title}</li>

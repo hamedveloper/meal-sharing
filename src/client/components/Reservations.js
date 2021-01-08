@@ -83,7 +83,7 @@ export function Reservations() {
 
   return (
     <section>
-      <div className="meal-list">
+      <div className="review-list-section">
         {data?.map((item) => (
           <ul key={item.id} className="meal-list2">
             <li>Title: {item.title}</li>

@@ -12,7 +12,7 @@ html {
 .add-meal {
   color: rgb(255, 255, 255);
 }
-.star-text-holder input[type="text"],
+.star-text-holder input,
 .add-meal input {
   border: 2px solid #666461;
   border-radius: 30px;
@@ -26,7 +26,7 @@ html {
   padding: 10px;
   width: 30%;
   height: 100px;
-  overflow: scroll;
+  overflow: auto;
 }
 .add-meal input,
 textarea:focus {
@@ -111,6 +111,14 @@ nav ul li a:hover {
   text-align: center;
   color: #5f4a22;
 }
+.review-list-section {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .meal-list {
   display: grid;
   grid-gap: 10px;
@@ -118,7 +126,7 @@ nav ul li a:hover {
   flex-wrap: wrap;
   width: 100%;
   height: 500px;
-  overflow: scroll;
+  overflow: auto;
 }
 .meal-list-search {
   display: grid;
@@ -137,6 +145,7 @@ nav ul li a:hover {
   flex-wrap: wrap;
   width: 100%;
 }
+.review-list-section ul,
 .meal-list-search ul,
 .review-list ul,
 .meal-list ul {
@@ -263,25 +272,27 @@ footer {
 .selected {
   background-color: #28993b;
 }
-.star-holder,
-.star-text-holder {
+.star-holder {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 5px;
   align-items: center;
-  background-color: white;
 }
-.star-holder {
-  margin-left: 10px;
-}
+
 .star-text-holder {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   width: 50%;
   border-radius: 10px;
   border: 2px solid white;
   box-shadow: 5px 5px 8px #28993b;
   margin: 10px 0 10px 0;
+  padding-left: 5px;
 }
 
 .menu-list {

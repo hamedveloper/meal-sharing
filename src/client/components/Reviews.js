@@ -62,7 +62,7 @@ export function Reviews() {
   updateAverage();
   return (
     <section>
-      <div className="meal-list ">
+      <div className="review-list-section">
         {data?.map((item) => (
           <ul className="meal-list2" key={item.id}>
             <li>Title: {item.title}</li>
@@ -75,14 +75,16 @@ export function Reviews() {
         ))}
       </div>
       <div className="star-text-holder">
-        <label>Name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-        <span>Rate your review: </span>
+        <div>
+          <label>Name:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></input>
+        </div>
         <div className="star-holder">
+          <span>Rate your review: </span>
           <FiveStar {...{ rating, setRating }} />
         </div>
       </div>
