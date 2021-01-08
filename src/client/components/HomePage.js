@@ -25,7 +25,7 @@ export function HomePage() {
         <MealsList />
         <section style={{ marginTop: "20px" }}>
           <footer>
-            <p>All rights reserved</p>
+            <p>All rights reserved @ Hamed karachi</p>
           </footer>
         </section>
       </SetSearchContext.Provider>
