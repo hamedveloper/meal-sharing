@@ -18,7 +18,7 @@ export function Menu() {
     <div className="menu-list">
       <h2 style={{ marginLeft: "20px", color: "white" }}>Available Meals:</h2>
       {data?.map((item) => (
-        <ul className="meal-list2" key={item.id}>
+        <ul className="menu-lists" key={item.id}>
           <a href={`/meals/reservations/${item.id}`}>
             <li>
               <div>{item.title}</div>

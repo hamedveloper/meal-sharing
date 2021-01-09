@@ -86,12 +86,18 @@ nav ul li {
   color: white;
   text-decoration: none;
 } */
-.meal-list2 a:visited {
+.menu-lists a:link,
+.menu-lists a:visited,
+.menu-lists {
   font-size: large;
+  font-weight: bold;
   margin: 0;
   color: #5f4a22;
+  background-color: white;
   text-decoration: none;
 }
+
+.meal-list2 a:visited,
 nav ul a:active,
 nav ul a:visited,
 .meal-list2 a:link,
@@ -336,11 +342,15 @@ footer {
 .menu-list ul:hover {
   cursor: pointer;
 }
+
 .menu-list ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 20px;
+}
+.menu-lists a {
+  border-radius: 30px;
 }
 .meal-list2 a:hover {
   text-decoration: none;
@@ -350,7 +360,14 @@ footer {
   font-size: 140%;
   color: #5f4a22;
 }
-
+.menu-lists a:hover {
+  text-decoration: none;
+  border: 2px solid #5f4a22;
+  background-color: white;
+  border-radius: 30px;
+  font-size: 140%;
+  color: #5f4a22;
+}
 .menu-list ul:hover {
   margin: -20px 0 -20px 0;
 }
