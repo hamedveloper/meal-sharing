@@ -31,23 +31,37 @@ router.get("/:id", async (request, response) => {
 
 //............................................Adds a new review
 
-router.post("/", async (request, response) => {
-  try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
-    const resault = await knex("reviews").insert(request.body);
-    response.json(resault);
-  } catch (error) {
-    throw error;
-  }
-});
+// router.post("/", async (request, response) => {
+//   try {
+//     // knex syntax for selecting things. Look up the documentation for knex for further info
+//     const resault = await knex("reviews").insert(request.body);
+//     response.json(resault);
+//   } catch (error) {
+//     throw error;
+//   }
+// });
 
-//...................................................Returns reviews by id
+//...................................................Returns reviews by  review id
 
 router.get("/:id", async (request, response) => {
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
     const resault = await knex("reviews").select("*").where({
       id: request.params.id,
+    });
+    response.json(resault);
+  } catch (error) {
+    throw error;
+  }
+});
+
+//...................................................Returns reviews by  mealId
+
+router.get("/meal/:id", async (request, response) => {
+  try {
+    // knex syntax for selecting things. Look up the documentation for knex for further info
+    const resault = await knex("reviews").select("*").where({
+      mealId: request.params.id,
     });
     response.json(resault);
   } catch (error) {

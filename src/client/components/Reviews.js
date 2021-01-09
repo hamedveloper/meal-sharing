@@ -28,7 +28,7 @@ export function Reviews() {
           numberOfStars: rating,
           content: review,
           mealId: parseInt(id),
-          createdAt: "2020-10-02",
+          createdAt: new Date().toISOString().split("T")[0],
           name: name,
         }),
       });

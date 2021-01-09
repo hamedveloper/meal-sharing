@@ -5,7 +5,7 @@ import { SearchBarFeature } from "./SearchBarFeature";
 
 export function NavigateBar() {
   return (
-    <nav className="NavbarItems">
+    <nav>
       <img
         src={logo}
         alt="Meal Sharing"
