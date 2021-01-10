@@ -60,6 +60,7 @@ export function Reviews() {
     });
   }
   updateAverage();
+
   return (
     <section>
       <div className="review-list-section">
