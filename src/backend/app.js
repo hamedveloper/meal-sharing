@@ -35,7 +35,14 @@ router.use("/contactus", contactusRouter);
 app.use(process.env.API_PATH, router);
 
 // for the frontend. Will first be covered in the react class
-app.use("*", (req, res) => {
+app.use("*", (err, req, res, next) => {
+  res.status(err.status || 500);
+  res.json({
+    error: {
+      status: err.status || 500,
+      message: err.message,
+    },
+  });
   res.sendFile(path.join(`${buildPath}/index.html`));
 });
 

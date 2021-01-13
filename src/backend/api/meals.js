@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const knex = require("../database");
+const createError = require("http-errors");
 
 //...........................................Returns all meals
 
@@ -50,14 +51,17 @@ router.get("/", async (request, response) => {
 
 //...........................................Adds a new meal
 
-router.post("/", async (request, response) => {
-  try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
-    const titles = await knex("meals").select("*").insert(request.body);
-    response.json(titles);
-  } catch (error) {
-    throw error;
-  }
+router.post("/", async (request, response, next) => {
+  // knex syntax for selecting things. Look up the documentation for knex for further info
+  await knex("meals")
+    .select("*")
+    .insert(request.body)
+    .then((x) => {
+      if (!x) {
+        throw createError(404, "not found");
+      } else return response.status(200).json(x);
+    })
+    .catch((error) => next(error));
 });
 
 ////////////////////Reset number of guests after booking based on the booking guest amount
