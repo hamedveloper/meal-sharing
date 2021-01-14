@@ -31,23 +31,38 @@ export function Reservations() {
 
   function SubmitReservation() {
     async function myfetch() {
-      await fetch("/api/reservations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          guestamount: guestNr,
-          phonenumber: phoneNr,
-          email: email,
-          mealId: parseInt(id),
-        }),
-      });
+      try {
+        await fetch("/api/reservations", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            guestamount: guestNr,
+            phonenumber: phoneNr,
+            email: email,
+            mealId: parseInt(id),
+          }),
+        }).then((res) => {
+          if (!res.ok) {
+            return Promise.reject({
+              status: res.status,
+              statusText: res.statusText,
+            });
+          }
+          return alert(
+            "Thank you! Your reservation has been registered successfully"
+          );
+        });
+      } catch (error) {
+        alert(
+          error.statusText +
+            " :Please fill all fields and try again. Check if you have put phonenumber and guest amount as a number!"
+        );
+      }
     }
     myfetch();
-
-    alert("Thank you. Your reservation succesfully done!");
 
     async function fetchUpdate() {
       await fetch(

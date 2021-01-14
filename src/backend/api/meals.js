@@ -93,15 +93,18 @@ router.put("/:id", async (request, response) => {
 //..........................................Returns meal by id
 
 router.get("/:id", async (request, response) => {
-  try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
-    const titles = await knex("meals").select("*").where({
+  // knex syntax for selecting things. Look up the documentation for knex for further info
+  await knex("meals")
+    .select("*")
+    .where({
       id: request.params.id,
-    });
-    response.json(titles);
-  } catch (error) {
-    throw error;
-  }
+    })
+    .then((x) => {
+      if (!x) {
+        throw createError(404, "not found");
+      } else return response.status(200).json(x);
+    })
+    .catch((error) => next(error));
 });
 
 //............................................Deletes the meal by id

@@ -19,23 +19,37 @@ export function Reviews() {
 
   function submitReview() {
     async function myreviewfetch() {
-      await fetch("/api/reviews", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          numberOfStars: rating,
-          content: review,
-          mealId: parseInt(id),
-          createdAt: new Date().toISOString().split("T")[0],
-          name: name,
-        }),
-      });
+      try {
+        await fetch("/api/reviews", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            numberOfStars: rating,
+            content: review,
+            mealId: parseInt(id),
+            createdAt: new Date().toISOString().split("T")[0],
+            name: name,
+          }),
+        }).then((res) => {
+          console.log(res);
+          if (!res.ok) {
+            return Promise.reject({
+              status: res.status,
+              statusText: res.statusText,
+            });
+          }
+          return alert(
+            "Thank you for your feedback! Your review has been registered successfully"
+          );
+        });
+      } catch (error) {
+        console.log(error);
+        alert(error.statusText + " :Please fill all fields and try agian");
+      }
     }
     myreviewfetch();
-
-    alert("Thank you for your help. Your review has been succesfully sent!");
   }
 
   const getDatas = () =>
