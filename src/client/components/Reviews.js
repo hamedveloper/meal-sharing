@@ -5,10 +5,10 @@ import { FiveStar } from "./FiveStar";
 export function Reviews() {
   let { id } = useParams();
   const [data, setData] = useState(null);
-  const [review, setReview] = useState("");
-  const [rating, setRating] = useState(0);
-  const [averageRate, setAverageRate] = useState("");
-  const [name, setName] = useState("");
+  const [review, setReview] = useState(null);
+  const [rating, setRating] = useState(null);
+  const [averageRate, setAverageRate] = useState(null);
+  const [name, setName] = useState(null);
 
   const fetchURL = `/api/meals/${parseInt(id)}`;
   const getData = () => fetch(`${fetchURL}`).then((res) => res.json());

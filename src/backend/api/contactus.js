@@ -6,19 +6,19 @@ router.get("/", async (request, response) => {
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
     const resault = await knex("contactus").select("*");
-    response.json(resault);
+    response.status(200).json(resault);
   } catch (error) {
     throw error;
   }
 });
 
-router.post("/", async (request, response) => {
+router.post("/", async (request, response, next) => {
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
     const resault = await knex("contactus").select("*").insert(request.body);
-    response.json(resault);
+    response.status(200).json(resault);
   } catch (error) {
-    throw error;
+    next(error);
   }
 });
 

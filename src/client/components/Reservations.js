@@ -4,10 +4,10 @@ import { useParams } from "react-router";
 export function Reservations() {
   let { id } = useParams();
   const [data, setData] = useState(null);
-  const [name, setName] = useState("");
-  const [guestNr, setGuestNr] = useState("");
-  const [phoneNr, setPhoneNr] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(null);
+  const [guestNr, setGuestNr] = useState(null);
+  const [phoneNr, setPhoneNr] = useState(null);
+  const [email, setEmail] = useState(null);
 
   const fetchURL = `/api/meals/${parseInt(id)}`;
 
@@ -25,7 +25,6 @@ export function Reservations() {
       return myResult;
     });
     const availabilityToBook = selectedMeal[0].number_of_guests - guestNr;
-
     return availabilityToBook;
   }
 
@@ -55,6 +54,36 @@ export function Reservations() {
             "Thank you! Your reservation has been registered successfully"
           );
         });
+        async function fetchUpdate() {
+          await fetch(
+            `/api/meals/${parseInt(id)}?numberOfGuests=${availability()}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                id,
+              }),
+            }
+          );
+        }
+        fetchUpdate();
+
+        if (availability() === 0) {
+          async function newfetch() {
+            await fetch(`/api/meals/${parseInt(id)}`, {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                id,
+              }),
+            });
+          }
+          newfetch();
+        }
       } catch (error) {
         alert(
           error.statusText +
@@ -63,37 +92,6 @@ export function Reservations() {
       }
     }
     myfetch();
-
-    async function fetchUpdate() {
-      await fetch(
-        `/api/meals/${parseInt(id)}?numberOfGuests=${availability()}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id,
-          }),
-        }
-      );
-    }
-    fetchUpdate();
-
-    if (availability() === 0) {
-      async function newfetch() {
-        await fetch(`/api/meals/${parseInt(id)}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id,
-          }),
-        });
-      }
-      newfetch();
-    }
   }
 
   return (
@@ -140,7 +138,16 @@ export function Reservations() {
           onChange={(e) => setEmail(e.target.value)}
         ></input>
         <br />
-        <button type="submit" onClick={SubmitReservation}>
+        <button
+          type="submit"
+          onClick={() =>
+            availability() >= 0
+              ? SubmitReservation()
+              : alert(
+                  "Check If you have booked less thana max number of reservation"
+                )
+          }
+        >
           Reserve
         </button>
       </div>

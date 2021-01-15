@@ -36,6 +36,7 @@ router.get("/:id", async (request, response, next) => {
 
 router.post("/", async (request, response, next) => {
   // knex syntax for selecting things. Look up the documentation for knex for further info
+
   await knex("reviews")
     .insert(request.body)
     .then((x) => {

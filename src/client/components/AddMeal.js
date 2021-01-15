@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export function AddMeal() {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState("");
   const [date, setDate] = useState("");
   const [price, setPrice] = useState("");

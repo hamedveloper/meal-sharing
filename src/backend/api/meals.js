@@ -92,7 +92,7 @@ router.put("/:id", async (request, response) => {
 });
 //..........................................Returns meal by id
 
-router.get("/:id", async (request, response) => {
+router.get("/:id", async (request, response, next) => {
   // knex syntax for selecting things. Look up the documentation for knex for further info
   await knex("meals")
     .select("*")
