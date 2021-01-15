@@ -4,10 +4,10 @@ import { FiveStar } from "./FiveStar";
 
 export function Reviews() {
   let { id } = useParams();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState("");
   const [review, setReview] = useState(null);
   const [rating, setRating] = useState(null);
-  const [averageRate, setAverageRate] = useState(null);
+  const [averageRate, setAverageRate] = useState(0);
   const [name, setName] = useState(null);
 
   const fetchURL = `/api/meals/${parseInt(id)}`;
@@ -33,7 +33,6 @@ export function Reviews() {
             name: name,
           }),
         }).then((res) => {
-          console.log(res);
           if (!res.ok) {
             return Promise.reject({
               status: res.status,
@@ -45,7 +44,6 @@ export function Reviews() {
           );
         });
       } catch (error) {
-        console.log(error);
         alert(error.statusText + " :Please fill all fields and try agian");
       }
     }
