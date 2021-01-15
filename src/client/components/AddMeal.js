@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export function AddMeal() {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState("");
   const [date, setDate] = useState("");
   const [price, setPrice] = useState("");
@@ -9,22 +9,36 @@ export function AddMeal() {
 
   function onSubmit() {
     async function myfetch() {
-      await fetch("/api/meals", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: title,
-          description: desc,
-          createdAt: date,
-          price: price,
-          number_of_guests: numberOfGuest,
-        }),
-      });
+      try {
+        await fetch("/api/meals", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: title,
+            description: desc,
+            createdAt: date,
+            price: price,
+            number_of_guests: numberOfGuest,
+          }),
+        }).then((res) => {
+          if (!res.ok) {
+            return Promise.reject({
+              status: res.status,
+              statusText: res.statusText,
+            });
+          }
+          return alert("Thank you! Your meal has been added successfully");
+        });
+      } catch (error) {
+        alert(
+          error.statusText +
+            " :Please fill all fields and check if you write price and guest number as a number"
+        );
+      }
     }
     myfetch();
-    alert("The meal has been added to the list");
   }
 
   return (

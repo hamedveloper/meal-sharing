@@ -1,26 +1,37 @@
 import React, { useState } from "react";
 
 export function ContactUs() {
-  const [contactEmail, setContactEmail] = useState("");
-  const [contactName, setContactName] = useState("");
-  const [contactMessage, setContactMessage] = useState("");
+  const [contactEmail, setContactEmail] = useState(null);
+  const [contactName, setContactName] = useState(null);
+  const [contactMessage, setContactMessage] = useState(null);
 
   function submitHandler() {
     async function myfetch() {
-      await fetch("/api/contactus", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          emailContact: contactEmail,
-          name: contactName,
-          contentContact: contactMessage,
-        }),
-      });
+      try {
+        await fetch("/api/contactus", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            emailContact: contactEmail,
+            name: contactName,
+            contentContact: contactMessage,
+          }),
+        }).then((res) => {
+          if (!res.ok) {
+            return Promise.reject({
+              status: res.status,
+              statusText: res.statusText,
+            });
+          }
+          return alert("Thank you! You have successfully sent your message");
+        });
+      } catch (error) {
+        alert(error.statusText + " :Please fill all fields and try again. ");
+      }
     }
     myfetch();
-    alert("Your contact information has been added to the list");
   }
 
   return (
