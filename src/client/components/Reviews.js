@@ -4,7 +4,7 @@ import { FiveStar } from "./FiveStar";
 
 export function Reviews() {
   let { id } = useParams();
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   const [review, setReview] = useState(null);
   const [rating, setRating] = useState(null);
   const [averageRate, setAverageRate] = useState(0);
