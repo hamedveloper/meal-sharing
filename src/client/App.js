@@ -12,12 +12,12 @@ import { Menu } from "./components/Menu";
 function App() {
   return (
     <Router>
-      <Route exact path="/meals/reservations/:id">
+      <Route exact path="/">
         <br />
         <HomePage />
       </Route>
       <Switch>
-        <Route path="/">
+        <Route path="/meals/reservations/:id">
           <NavigateBar />
           <br />
           <Reservations />
