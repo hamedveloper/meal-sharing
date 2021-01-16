@@ -22,13 +22,13 @@ export function NavigateBar() {
           <Link to="/menu">Menu</Link>
         </li>
         <li>
-          <a href="./meals">Add a Meal</a>
+          <Link to="/meals">Add a Meal</Link>
         </li>
         <li>
-          <a href="./reviews">Reviews</a>
+          <Link to="/reviews">Reviews</Link>
         </li>
         <li>
-          <a href="./contactus">Contact us</a>
+          <Link to="./contactus">Contact us</Link>
         </li>
       </ul>
     </nav>
