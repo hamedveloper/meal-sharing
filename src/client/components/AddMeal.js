@@ -48,6 +48,7 @@ export function AddMeal() {
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        required
       ></input>
       <br />
       <label>Description: </label>
