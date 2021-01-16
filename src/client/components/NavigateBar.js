@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./HomePage.css";
 import logo from "./../assets/images/mealsharing.png";
 import { SearchBarFeature } from "./SearchBarFeature";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 export function NavigateBar() {
   return (
@@ -18,7 +19,7 @@ export function NavigateBar() {
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="./menu">Menu</a>
+          <Link to="/menu">Menu</Link>
         </li>
         <li>
           <a href="./meals">Add a Meal</a>
